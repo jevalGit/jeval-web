@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jeval.cl inicio</title>
+  <!-- Enlace al archivo CSS de Bootstrap -->
+  <link href="https://cdn.jeval.cl/0/bootstrap/bootstrap-5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Enlace al ícono favicon -->
+  <link rel="icon" type="image/x-icon" href="/icon/jcon.ico">
+
+  <style>
+    /* Estilos para el botón de modo oscuro */
+    #darkModeBtn {
+      position: fixed;
+      bottom: 20px; /* Ajusta la distancia desde la parte inferior */
+      right: 20px; /* Ajusta la distancia desde la derecha */
+      z-index: 1000; /* Asegura que esté por encima de otros elementos */
+      transition: transform 0.3s ease-in-out; /* Animación de transformación */
+    }
+
+    /* Estilo para el modo oscuro */
+    .bg-dark,
+    .text-light {
+      background-color: #333 !important;
+      color: #fff !important;
+    }
+
+    /* Estilos para los botones */
+    .custom-btn {
+      margin-bottom: 10px; /* Espaciado entre botones */
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THJJ4DTM');</script>
+  <!-- End Google Tag Manager -->
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4">
+        <button class="btn btn-secondary custom-btn redirect-btn animate-btn" onclick="window.location.href='https://www.jeval.cl/example.php'">
+          <img src="https://via.placeholder.com/500" alt="Imagen 1" class="img-fluid">
+        </button>
+        <p>Botón 1</p>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-secondary custom-btn redirect-btn animate-btn" onclick="window.location.href='https://www.jeval.cl/example.php'">
+          <img src="https://via.placeholder.com/500" alt="Imagen 2" class="img-fluid">
+        </button>
+        <p>Botón 2</p>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-secondary custom-btn redirect-btn animate-btn" onclick="window.location.href='https://www.jeval.cl/example.php'">
+          <img src="https://via.placeholder.com/500" alt="Imagen 3" class="img-fluid">
+        </button>
+        <p>Botón 3</p>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-dark mode-btn" id="darkModeBtn" onclick="toggleDarkMode()">☽</button>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ignore"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <script>
+
+    function toggleDarkMode() {
+      const body = document.body;
+      const darkModeBtn = document.getElementById('darkModeBtn');
+
+      if (body.classList.contains('bg-dark')) {
+        body.classList.remove('bg-dark', 'text-light', 'fade-effect');
+        localStorage.setItem('modePreference', 'light');
+      } else {
+        body.classList.add('bg-dark', 'text-light', 'fade-effect');
+        localStorage.setItem('modePreference', 'dark');
+      }
+    }
+
+    const userModePreference = localStorage.getItem('modePreference');
+
+    if (userModePreference === 'dark') {
+      toggleDarkMode();
+    }
+  </script>
+</body>
+</html>
